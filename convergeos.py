@@ -22,6 +22,6 @@ sys.print_prio("Entering CLI.", debug)
 while True:
     inp = sys.split_command(input("?> "))
     command = inp[0]
-    inputs = command[1]
+    inputs = inp[1]
 
-    cmdlib.process_command(command, inp)
+    cmdlib.process_command(command, inputs)

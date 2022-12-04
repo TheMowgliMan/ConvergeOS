@@ -11,9 +11,11 @@ def print_prio(text, debug):
 # Splits a command up as needed. Return format: ["command", ["input 1", "input 2"]]
 def split_command(cmd):
     inp = cmd.split(" ")
-    inputs = ""
+    inputs = None
     command = inp[0]
     del inp[0]
     inputs = inp
+
+    # print([command, inputs])
 
     return [command, inputs]
