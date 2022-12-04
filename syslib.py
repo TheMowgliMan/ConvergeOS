@@ -8,7 +8,7 @@ def print_prio(text, debug):
     if debug == True:
         print(text)
 
-# Splits a command up as needed
+# Splits a command up as needed. Return format: ["command", ["input 1", "input 2"]]
 def split_command(cmd):
     inp = cmd.split(" ")
     inputs = ""
