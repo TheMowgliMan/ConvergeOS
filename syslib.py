@@ -3,6 +3,17 @@
 # Author: @TheMowgliMan
 # Other Contributors:
 
+# Prority print- I.e. prints only if debug is true
 def print_prio(text, debug):
     if debug == True:
         print(text)
+
+# Splits a command up as needed
+def split_command(cmd):
+    inp = cmd.split(" ")
+    inputs = ""
+    command = inp[0]
+    del inp[0]
+    inputs = inp
+
+    return [command, inputs]
