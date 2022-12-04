@@ -20,11 +20,8 @@ memory = memlib.MemoryManager(maximum_size = 16384, debug = debug)
 sys.print_prio("Entering CLI.", debug)
 
 while True:
-    inp = input("?> ")
-    inp = inp.split(" ")
-    inputs = " "
+    inp = sys.split_command(input("?> "))
     command = inp[0]
-    del inp[0]
-    inputs = inp
+    inputs = command[1]
 
     cmdlib.process_command(command, inp)
