@@ -43,3 +43,5 @@ def process_command(command, input):
         evaluate(input)
     elif command == "exit":
         exit_os(input)
+    else:
+        warnings.warn("Command " + command + " does not exist.")
