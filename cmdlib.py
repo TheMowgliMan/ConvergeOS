@@ -20,8 +20,11 @@ def echo(text):
 # Evaluates a single line of python
 def evaluate(text):
     if isinstance(text, list):
-        ret = eval(reassemble(text))
-        print(ret)
+        try:
+            ret = eval(reassemble(text))
+            print(ret)
+        except SyntaxError:
+            print("Command '" + reassemble(text) + "' has incorrect syntax.")
     else:
         raise TypeError("Eval only takes a string or list!")
 
