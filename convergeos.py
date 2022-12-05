@@ -12,7 +12,7 @@ import cmdlib
 
 debug = True
 
-print("ConvergeOS Pre-alpha 0.0.1.12. Debug auto-on.")
+print("ConvergeOS Pre-alpha 0.0.1.13. Debug auto-on.")
 
 sys.print_prio("Activating memlib...", debug)
 memory = memlib.MemoryManager(maximum_size = 16384, debug = debug)

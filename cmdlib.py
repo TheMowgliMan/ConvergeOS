@@ -21,10 +21,10 @@ def echo(text):
 def evaluate(text):
     if isinstance(text, list):
         try:
-            ret = eval(reassemble(text))
+            ret = eval(reassemble(text).strip())
             print(ret)
         except SyntaxError:
-            print("Command '" + reassemble(text) + "' has incorrect syntax.")
+            print("Command '" + reassemble(text).strip() + "' has incorrect syntax.")
     else:
         raise TypeError("Eval only takes a string or list!")
 
