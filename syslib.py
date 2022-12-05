@@ -19,3 +19,10 @@ def split_command(cmd):
     # print([command, inputs])
 
     return [command, inputs]
+
+def reassemble(list, sep = " "):
+    out = ""
+    for i in list:
+        out = out + i + sep
+
+    return out
