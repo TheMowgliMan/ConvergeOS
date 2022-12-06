@@ -13,7 +13,7 @@ class CmdprocInterpreter:
     def interpret(self, string):
         out = ""
         for line in string.split("\n"):
-            data = str(line).split(" ")
+            data = str(line).split("|")
             for command in data:
                 cmdinp = command.split("-")
 
@@ -26,4 +26,4 @@ class CmdprocInterpreter:
 # Testing code
 if __name__ == "__main__":
     cmdproc = CmdprocInterpreter()
-    print(cmdproc.interpret("FILE-syslib.py APPEND-nlcr"))
+    print(cmdproc.interpret("FILE-syslib.py|APPEND-line one nlcr line two-smth else"))
