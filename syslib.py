@@ -20,6 +20,12 @@ def split_command(cmd):
 
     return [command, inputs]
 
+# Takes a string and replaces the default set of characters
+def filter(string):
+    out = str(string).replace("nlcr", "\n")
+    out = out.replace(" nlcr ", "\n")
+
+# Takes a list of strings and reassembles them into a string
 def reassemble(list, sep = " "):
     out = ""
     for i in list:
@@ -28,4 +34,4 @@ def reassemble(list, sep = " "):
         else:
             out = out + i + sep
 
-    return out
+    return filter(out)
