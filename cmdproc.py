@@ -20,7 +20,6 @@ class CmdprocInterpreter:
                 if cmdinp[0] == "APPEND":
                     del cmdinp[0]
                     out = out + syslib.reassemble(cmdinp)
-                    print(cmdinp)
 
         return out
 
