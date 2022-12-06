@@ -22,8 +22,15 @@ def split_command(cmd):
 
 # Takes a string and replaces the default set of characters
 def filter(string):
+    # Takes NLCR and replaces it with a newline
     out = str(string).replace("nlcr", "\n")
     out = out.replace(" nlcr ", "\n")
+    out = out.replace("nlcr ", "\n")
+    out = out.replace(" nlcr", "\n")
+    out = out.replace("NLCR", "\n")
+    out = out.replace(" NLCR ", "\n")
+    out = out.replace("NLCR ", "\n")
+    out = out.replace(" NLCR", "\n")
 
     return out
 
