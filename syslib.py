@@ -25,6 +25,8 @@ def filter(string):
     out = str(string).replace("nlcr", "\n")
     out = out.replace(" nlcr ", "\n")
 
+    return out
+
 # Takes a list of strings and reassembles them into a string
 def reassemble(list, sep = " "):
     out = ""
