@@ -20,10 +20,26 @@ class CmdprocInterpreter:
                 if cmdinp[0] == "APPEND":
                     del cmdinp[0]
                     out = out + syslib.reassemble(cmdinp)
+                if cmdinp[0] == "FILE":
+                    del cmdinp[0]
+                    out = out + self.FILE(cmdinp)
 
         return out
+
+    def FILE(self, inputs):
+        if len(inputs) == 1:
+            try:
+                file_handler = open(inputs[0], 'r')
+                ret_data = file_handler.read()
+                file_handler.close()
+
+                return ret_data
+            except IOError:
+                print("File '" + inputs[0] + "' does not exist.")
+        else:
+            print("Incorrect number of arguments for FILE.")
 
 # Testing code
 if __name__ == "__main__":
     cmdproc = CmdprocInterpreter()
-    print(cmdproc.interpret("FILE-syslib.py|APPEND-line one NLCR line two-smth else"))
+    print(cmdproc.interpret("FILE-syslib.py|APPEND-NLCRline one NLCR line two-smth else"))

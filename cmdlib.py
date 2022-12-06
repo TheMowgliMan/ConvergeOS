@@ -5,15 +5,16 @@
 
 
 from syslib import reassemble
+import cmdproc
 import warnings
 
 
 # Stores help values for commands
 help_dict = {
-    "echo":"Echo: Prints its inputs to the terminal. Supports cmdproc (NOT IMPLEMENTED)",
-    "eval":"Eval: Evaluates a line of Python. Does not support cmdproc.",
+    "echo":"Echo <cmdproc (optional)>:bool <inputs>:string: Prints its inputs to the terminal. Supports cmdproc with cmdproc at <cmdproc>.",
+    "eval":"Eval <python>:string: Evaluates a line of Python. Does not support cmdproc.",
     "exit":"Exit: Forcibly terminates the OS. May cause errors when using multiprocess.",
-    "help":"Help: Prints a list of all commands, or when given inputs gives defenitions for each command."
+    "help":"Help <command (optional)>:string: Prints a list of all commands, or when given inputs gives defenitions for each command."
 }
 
 
@@ -22,7 +23,14 @@ def echo(text):
     if isinstance(text, str):
         print(text)
     elif isinstance(text, list):
-        print(reassemble(text))
+        if text[0] == "cmdproc":
+            cmd = cmdproc.CmdprocInterpreter()
+            inp = text
+            del inp[0]
+
+            print(cmd.interpret(reassemble(inp)))
+        else:
+            print(reassemble(text))
     else:
         raise TypeError("Echo only takes a string or list!")
 
