@@ -20,10 +20,11 @@ class CmdprocInterpreter:
                 if cmdinp[0] == "APPEND":
                     del cmdinp[0]
                     out = out + syslib.reassemble(cmdinp)
+                    print(cmdinp)
 
         return out
 
 # Testing code
 if __name__ == "__main__":
     cmdproc = CmdprocInterpreter()
-    print(cmdproc.interpret("FILE-syslib.py|APPEND-line one nlcr line two-smth else"))
+    print(cmdproc.interpret("FILE-syslib.py|APPEND-line one NLCR line two-smth else"))
