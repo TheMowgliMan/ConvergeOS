@@ -8,6 +8,15 @@ from syslib import reassemble
 import warnings
 
 
+# Stores help values for commands
+help_dict = {
+    "echo":"Echo: Prints its inputs to the terminal. Supports cmdproc (NOT IMPLEMENTED)",
+    "eval":"Eval: Evaluates a line of Python. Does not support cmdproc.",
+    "exit":"Exit: Forcibly terminates the OS. May cause errors when using multiprocess.",
+    "help":"Help: Prints a list of all commands, or when given inputs gives defenitions for each command."
+}
+
+
 # Prints a string or list to stdout; raises error if wrong type.
 def echo(text):
     if isinstance(text, str):
@@ -39,6 +48,17 @@ def exit_os(inputs):
 
     exit()
 
+# Help function
+def help_cmd(inputs):
+    if inputs == []:
+        print("All commands:", "echo", "eval", "exit", "help", sep="/n")
+    else:
+        for i in inputs:
+            if i in help_dict:
+                print(help_dict[i])
+            else:
+                print(str(i).capitalize() + ": This command does not exist.")
+
 def process_command(command, input):
     if command == "echo":
         echo(input)
@@ -46,5 +66,7 @@ def process_command(command, input):
         evaluate(input)
     elif command == "exit":
         exit_os(input)
+    elif command == "help":
+        help_cmd(input)
     else:
         warnings.warn("Command " + command + " does not exist.")
