@@ -23,6 +23,9 @@ def split_command(cmd):
 def reassemble(list, sep = " "):
     out = ""
     for i in list:
-        out = out + i + sep
+        if i == "nlcr":
+            out = out + "\n" + sep
+        else:
+            out = out + i + sep
 
     return out

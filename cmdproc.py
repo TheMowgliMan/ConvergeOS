@@ -11,7 +11,17 @@ class CmdprocInterpreter:
         pass
 
     def interpret(self, string):
-        print(string)
+        out = ""
+        for line in string.split("\n"):
+            data = str(line).split(" ")
+            for command in data:
+                cmdinp = command.split("-")
+
+                if cmdinp[0] == "APPEND":
+                    del cmdinp[0]
+                    out = out + syslib.reassemble(cmdinp)
+
+        return out
 
 # Testing code
 if __name__ == "__main__":
