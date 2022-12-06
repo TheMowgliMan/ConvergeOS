@@ -51,7 +51,7 @@ def exit_os(inputs):
 # Help function
 def help_cmd(inputs):
     if inputs == []:
-        print("All commands:", "echo", "eval", "exit", "help", sep="/n")
+        print("All commands:", "echo", "eval", "exit", "help", sep="\n")
     else:
         for i in inputs:
             if i in help_dict:
