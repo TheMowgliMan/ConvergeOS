@@ -11,7 +11,7 @@ import warnings
 
 # Stores help values for commands
 help_dict = {
-    "echo":"Echo <cmdproc (optional)>:bool <inputs>:string: Prints its inputs to the terminal. Supports cmdproc with cmdproc at <cmdproc>.",
+    "echo":"Echo <cmdproc (optional)>:bool <log (optional)>:bool <inputs>:string: Prints its inputs to the terminal. Supports cmdproc\nwith cmdproc at <cmdproc>. Logs into 'echolog.txt' if 'log' added after <cmdproc> but before otehr inputs.",
     "eval":"Eval <python>:string: Evaluates a line of Python. Does not support cmdproc.",
     "exit":"Exit: Forcibly terminates the OS. May cause errors when using multiprocess.",
     "help":"Help <command (optional)>:string: Prints a list of all commands, or when given inputs gives defenitions for each command."
