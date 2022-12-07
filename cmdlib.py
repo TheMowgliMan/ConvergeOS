@@ -28,9 +28,34 @@ def echo(text):
             inp = text
             del inp[0]
 
-            print(cmd.interpret(reassemble(inp)))
+            if inp[0] == "log":
+                del inp[0]
+
+                f = open("echolog.txt", 'a')
+
+                out = cmd.interpret(reassemble(inp))
+
+                f.write(out + "\n")
+                f.close()
+                print(out)
+            else:
+                out = cmd.interpret(reassemble(inp))
+                print(out)
         else:
-            print(reassemble(text, filter_str=True))
+            inp = text
+            if inp[0] == "log":
+                del inp[0]
+
+                f = open("echolog.txt", 'a')
+
+                out = reassemble(inp, filter_str=True)
+
+                f.write(out + "\n")
+                f.close()
+                print(out)
+            else:
+                out = reassemble(inp, filter_str=True)
+                print(out)
     else:
         raise TypeError("Echo only takes a string or list!")
 
