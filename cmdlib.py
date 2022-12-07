@@ -30,7 +30,7 @@ def echo(text):
 
             print(cmd.interpret(reassemble(inp)))
         else:
-            print(reassemble(text))
+            print(reassemble(text, filter_str=True))
     else:
         raise TypeError("Echo only takes a string or list!")
 
