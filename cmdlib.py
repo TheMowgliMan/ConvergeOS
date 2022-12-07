@@ -35,7 +35,7 @@ def echo(text):
 
                 out = cmd.interpret(reassemble(inp))
 
-                f.write(out + "\n")
+                f.write("\n" + out + "\n")
                 f.close()
                 print(out)
             else:
@@ -50,7 +50,7 @@ def echo(text):
 
                 out = reassemble(inp, filter_str=True)
 
-                f.write(out + "\n")
+                f.write("\n" + out + "\n")
                 f.close()
                 print(out)
             else:
