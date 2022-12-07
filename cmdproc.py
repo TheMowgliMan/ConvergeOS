@@ -15,6 +15,8 @@ class CmdprocInterpreter:
         for line in string.split("\n"):
             data = str(line).split("|")
             print(data)
+
+            command_iter = 0
             for command in data:
                 cmdinp = command.split("-")
 
@@ -23,7 +25,16 @@ class CmdprocInterpreter:
                     out = out + syslib.reassemble(cmdinp, filter_str=True)
                 if cmdinp[0] == "FILE":
                     del cmdinp[0]
-                    out = out + self.FILE(cmdinp)
+
+                    if command_iter > 0:
+                        if data[command_iter - 1].split("-")[0] == "APPEND":
+                            out = out + self.FILE(cmdinp)
+                        else:
+                            out = self.FILE(cmdinp)
+                    else:
+                        out = self.FILE(cmdinp)
+
+                command_iter += 1
 
         return out
 
