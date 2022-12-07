@@ -35,7 +35,7 @@ def filter(string):
     return out
 
 # Takes a list of strings and reassembles them into a string
-def reassemble(list, sep = " "):
+def reassemble(list, sep = " ", filter_str = False):
     out = ""
     for i in list:
         if i == "nlcr":
@@ -43,4 +43,7 @@ def reassemble(list, sep = " "):
         else:
             out = out + i + sep
 
-    return filter(out)
+    if filter_str:
+        return filter(out)
+    else:
+        return out
