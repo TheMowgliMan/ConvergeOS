@@ -23,7 +23,7 @@ class CmdprocInterpreter:
                 if cmdinp[0] == "APPEND":
                     del cmdinp[0]
                     out = out + syslib.reassemble(cmdinp, filter_str=True)
-                if cmdinp[0] == "FILE":
+                elif cmdinp[0] == "FILE":
                     del cmdinp[0]
 
                     if command_iter > 0:
