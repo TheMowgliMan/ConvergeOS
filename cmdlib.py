@@ -75,7 +75,7 @@ def exit_os(inputs):
     if inputs != []:
         print("Note: Exit uses no inputs.")
 
-    warnings.warn("Note that Exit forcibly closes the OS! Any running programs in the background will be forcibly terminated.")
+    print("Note that Exit forcibly closes the OS! Any running programs in the background will be forcibly terminated.")
 
     print("Exiting...")
 
