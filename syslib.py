@@ -3,6 +3,8 @@
 # Author: @TheMowgliMan
 # Other Contributors:
 
+import os
+
 # Prority print- I.e. prints only if debug is true
 def print_prio(text, debug):
     if debug == True:
@@ -47,3 +49,15 @@ def reassemble(list, sep = " ", filter_str = False):
         return filter(out)
     else:
         return out
+
+# Creates the userspace filesystem
+def install_filesystem():
+    os.mkdir("/userspace")
+    os.mkdir("/userspace/system")
+    os.mkdir("/userspace/system/log")
+    os.mkdir("userspace/system/apps")
+    os.mkdir("userspace/user")
+    os.mkdir("userspace/user/documents")
+    os.mkdir("userspace/user/desktop")
+    os.mkdir("userspace/user/images")
+    os.mkdir("userspace/user/appdata")

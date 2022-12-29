@@ -4,6 +4,7 @@
 # Other contributors: 
 
 import syslib
+from os import getcwd
 
 # This class allows interpretation of cmdproc commands.
 class CmdprocInterpreter:
