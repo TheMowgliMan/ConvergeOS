@@ -9,17 +9,20 @@
 import syslib as sys
 import memlib
 import cmdlib
+import shutil
 from os import getcwd, path
 
 debug = True
 
-print("ConvergeOS Pre-alpha 0.0.1.36. Debug auto-on.")
+print("ConvergeOS Pre-alpha 0.0.1.38. Debug auto-on.")
 
 sys.print_prio("Activating memlib...", debug)
 memory = memlib.MemoryManager(maximum_size = 16384, debug = debug)
 
 # Check for the user files directory.
-if path.isdir(getcwd() + "/userspace"):
+# NEXT LINE TEMP
+shutil.rmtree(path.join(getcwd(), "/userspace"))
+if path.isdir("/userspace"):
     sys.print_prio("Userspace exists. Continuing.", debug)
 else:
     print("Userspace filesystem does not exist. Creating.")

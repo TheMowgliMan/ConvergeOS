@@ -5,6 +5,7 @@
 
 
 from syslib import reassemble
+import os
 import cmdproc
 import warnings
 
@@ -31,7 +32,7 @@ def echo(text):
             if inp[0] == "log":
                 del inp[0]
 
-                f = open("/userspace/system/log/echolog.txt", 'a')
+                f = open(os.path.join(os.getcwd(), "/userspace/system/log/echolog.txt", 'a'))
 
                 out = cmd.interpret(reassemble(inp))
 
@@ -46,7 +47,7 @@ def echo(text):
             if inp[0] == "log":
                 del inp[0]
 
-                f = open("echolog.txt", 'a')
+                f = open(os.path.join(os.getcwd(), "/userspace/system/log/echolog.txt", 'a'))
 
                 out = reassemble(inp, filter_str=True)
 

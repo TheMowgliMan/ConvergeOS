@@ -52,12 +52,12 @@ def reassemble(list, sep = " ", filter_str = False):
 
 # Creates the userspace filesystem
 def install_filesystem():
-    os.mkdir("/userspace")
-    os.mkdir("/userspace/system")
-    os.mkdir("/userspace/system/log")
-    os.mkdir("/userspace/system/apps")
-    os.mkdir("/userspace/user")
-    os.mkdir("/userspace/user/documents")
-    os.mkdir("/userspace/user/desktop")
-    os.mkdir("/userspace/user/images")
-    os.mkdir("/userspace/user/appdata")
+    os.mkdir(os.path.join(os.getcwd(), "/userspace"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/system"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/system/log"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/system/apps"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/user"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/user/documents"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/user/desktop"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/user/images"))
+    os.mkdir(os.path.join(os.getcwd(), "/userspace/user/appdata"))
